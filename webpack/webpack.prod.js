@@ -20,17 +20,16 @@ module.exports = merge(common,{
                 use: extractSass.extract({
                     use:[
                         {loader:'css-loader', options: { minimize: true }},
-                        {loader:'postcss-loader'},
-                        {loader: 'sass-loader'}
+                        {loader: 'resolve-url-loader'},
+                        {loader:'postcss-loader?sourceMap'},
+                        {loader: 'sass-loader?sourceMap'}
                     ]
                 })
             },
             {
                 test:/\.html$/,
                 use:[
-                    {
-                        loader: 'html-loader', options: { minimize:true, attrs:false }
-                    }
+                    {loader: 'html-loader', options: { minimize:true, attrs:false }}
                 ]
             }
         ]

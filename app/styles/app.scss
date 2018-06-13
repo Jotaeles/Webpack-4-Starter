@@ -1,3 +1,28 @@
+@import 'globals/_typography.scss';
+@import 'globals/_variables.scss';
+@import 'utilities/mixins/_easings.scss';
+@import 'utilities/mixins/_media_queries.scss';
+@import 'vendor/_reset.scss';
+
 body{
-    background: red;
+    background-color: $WHITE;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+h1, h2{
+    font-family: $ANTON;
+    font-size: 50px;
+    line-height: 50px;
+    text-transform: uppercase;
+}
+h1{
+    color: $IMPERIAL;
+}
+h2{
+    background-color: $WILDGREEN;
+    color: $WHITE;
+    padding: 10px;
 }

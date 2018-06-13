@@ -1,0 +1,63 @@
+// Write Better Media Queries | David Walsh Blog
+// https://davidwalsh.name/write-media-queries-sass
+//
+// Note: Mixin adapted to work with bootstrap media queries and semantics
+@mixin xs-devices-only {
+    @media (max-width: #{$XS_MAX_WIDTH - 1px}) {
+        @content;
+    }
+}
+
+@mixin xs-devices {
+    @media (min-width: #{$XS_MAX_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin xs-devices-landscape {
+    @media (min-width: #{$XS_MIN_WIDTH_LANDSCAPE}) {
+        @content;
+    }
+}
+
+@mixin sm-devices {
+    @media (min-width: #{$SM_MIN_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin xs-sm-devices-only {
+    @media (max-width: #{$MD_MIN_WIDTH - 1px}) {
+        @content;
+    }
+}
+
+@mixin sm-devices-only {
+    @media (min-width: #{$XS_MAX_WIDTH}) and (max-width: #{$SM_MIN_WIDTH - 1px}) {
+        @content;
+    }
+}
+
+@mixin sm-md-devices-only {
+    @media (min-width: #{$XS_MAX_WIDTH}) and (max-width: #{$MD_MIN_WIDTH - 1px}) {
+        @content;
+    }
+}
+
+@mixin md-devices {
+    @media (min-width: #{$MD_MIN_WIDTH}) {
+        @content;
+    }
+}
+
+@mixin md-devices-only {
+    @media (min-width: #{$SM_MIN_WIDTH}) and (max-width: #{$MD_MIN_WIDTH - 1px}) {
+        @content;
+    }
+}
+
+@mixin lg-devices {
+    @media (min-width: #{$LG_MIN_WIDTH}) {
+        @content;
+    }
+}
