@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlWebpack = new HtmlWebpackPlugin({
-    template: './app/index.html',
+    template: './app/index.pug',
     filename: 'index.html'
 });
 
@@ -17,7 +17,7 @@ module.exports = {
     module: {
         rules:[
             {
-                test: /\.tsx$/,
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use:[
                     {
@@ -30,6 +30,10 @@ module.exports = {
                         loader:'ts-loader'
                     }
                 ]
+            },
+            {
+                test: /\.pug$/,
+                use:['html-loader','pug-html-loader']
             },
             {
                 test: /\.jpg$/,
