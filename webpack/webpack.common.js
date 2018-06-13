@@ -7,7 +7,7 @@ const htmlWebpack = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-    entry: './app/scripts/entry.js',
+    entry: './app/scripts/app.ts',
     output: {
         publicPath: '/',
         path: path.resolve(__dirname, '../dist'),
@@ -17,9 +17,27 @@ module.exports = {
     module: {
         rules:[
             {
+                test: /\.tsx$/,
+                exclude: /node_modules/,
+                use:[
+                    {
+                        loader:'babel-loader',
+                        options:{
+                            presets:['env']
+                        }
+                    },
+                    {
+                        loader:'ts-loader'
+                    }
+                ]
+            },
+            {
                 test: /\.jpg$/,
                 use: 'url-loader'
             }
         ]
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ]
     }
 }
