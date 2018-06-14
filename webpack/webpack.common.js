@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TSLintWebpackPlugin = require('tslint-webpack-plugin');
 
 const htmlWebpack = new HtmlWebpackPlugin({
     template: './app/pugs/views/home/home.pug',
@@ -22,7 +23,13 @@ module.exports = {
         path: path.resolve(__dirname, '../dist'),
         filename: 'js/[name].js'
     },
-    plugins: [htmlWebpack, htmlWebpackAbout],
+    plugins: [
+        htmlWebpack, 
+        htmlWebpackAbout,
+        new TSLintWebpackPlugin({
+            files: ['./app/**/*.ts']
+        })
+    ],
     module: {
         rules:[
             {
@@ -37,6 +44,9 @@ module.exports = {
                     },
                     {
                         loader:'ts-loader'
+                    },
+                    {
+                        loader: 'tslint-loader'
                     }
                 ]
             },
