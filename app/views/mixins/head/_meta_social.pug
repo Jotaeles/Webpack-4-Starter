@@ -1,0 +1,17 @@
+//- TWITTER CARD
+mixin twitter_card(t_title, t_description, t_account,  t_img)
+    meta(name="twitter:card" content="summary_large_image")
+    meta(name="twitter:title" content= t_title)
+    meta(name="twitter:description" content= t_description)
+    if t_account != ''
+        meta(name="twitter:creator" content= t_account)
+    if t_img != ''
+        meta(name="twitter:image" content= t_img)
+
+//- FACEBOOK CARD
+mixin facebook_card(f_title, f_description, f_url, f_img)
+    meta(property="og:type" content="article")
+    meta(property="og:title" content= f_title)
+    meta(property="og:description" content= f_description)
+    meta(property="og:url" content= f_url)
+    meta(property="og:image" content= f_img)

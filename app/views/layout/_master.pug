@@ -1,0 +1,21 @@
+doctype html
+html(lang="en")
+    head
+        //- INCLUDES MIXINS (METAS, SOCIAL AND FAVICON)
+        include ../mixins/head/_meta_main.pug
+        include ../mixins/head/_meta_social.pug
+        include ../mixins/head/_favicon.pug
+
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+
+        block meta-vars
+        //- METAS MIXIN
+        +simple_meta(_title, _description, _keywords)
+        +favicon
+        +twitter_card(_title, _description, twitter_account, twitter_img)
+        +facebook_card(_title, _description, facebook_url, facebook_img)
+    
+    body
+        block body

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlWebpack = new HtmlWebpackPlugin({
-    template: './app/index.pug',
+    template: './app/views/index.pug',
     filename: 'index.html'
 });
 
