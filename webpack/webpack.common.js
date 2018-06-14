@@ -59,8 +59,8 @@ module.exports = {
                 use: 'file-loader?name=fonts/[name][hash].[ext]'
             },
             {
-                test: /\.jpg$/,
-                use: 'url-loader'
+                test: /\.(jpe?g|png|gif)$/i,
+                use: 'url-loader?name=images/[hash].[ext]'
             }
         ]
     },
