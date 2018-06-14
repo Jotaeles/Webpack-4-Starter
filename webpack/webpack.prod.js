@@ -10,9 +10,6 @@ const extractSass =  new ExtractTextPlugin({
 module.exports = merge(common,{
     devtool: 'source-map',
     mode:'production',
-    output:{
-        publicPath: '.'
-    },
     module:{
         rules:[
             {

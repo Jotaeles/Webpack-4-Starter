@@ -2,18 +2,27 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlWebpack = new HtmlWebpackPlugin({
-    template: './app/views/index.pug',
-    filename: 'index.html'
+    template: './app/pugs/views/home/home.pug',
+    filename: 'index.html',
+    chunks: ['home']
+});
+const htmlWebpackAbout = new HtmlWebpackPlugin({
+    template: './app/pugs/views/about/about.pug',
+    filename: 'about.html',
+    chunks: ['about']
 });
 
 module.exports = {
-    entry: './app/scripts/app.ts',
+    entry: {
+        'home': './app/scripts/views/home/home.main.ts',
+        'about':'./app/scripts/views/about/about.main.ts'
+    },
     output: {
         publicPath: '/',
         path: path.resolve(__dirname, '../dist'),
-        filename: 'js/bundle.js'
+        filename: 'js/[name].js'
     },
-    plugins: [htmlWebpack],
+    plugins: [htmlWebpack, htmlWebpackAbout],
     module: {
         rules:[
             {
