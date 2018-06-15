@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TSLintWebpackPlugin = require('tslint-webpack-plugin');
@@ -28,6 +29,10 @@ module.exports = {
         htmlWebpackAbout,
         new TSLintWebpackPlugin({
             files: ['./app/**/*.ts']
+        }),
+        new webpack.ProvidePlugin({
+            $: 'jquery',
+            jQuery: 'jquery'
         })
     ],
     module: {
